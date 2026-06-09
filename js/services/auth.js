@@ -10,7 +10,7 @@ export const auth = {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: window.location.origin + '/index.html'
+        redirectTo: 'https://enocram.github.io/SYNCORE/'
       }
     });
     if (error) throw error;
@@ -22,7 +22,7 @@ export const auth = {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'github',
       options: {
-        redirectTo: window.location.origin + '/index.html'
+        redirectTo: 'https://enocram.github.io/SYNCORE/'
       }
     });
     if (error) throw error;
