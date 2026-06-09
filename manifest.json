@@ -1,6 +1,6 @@
 {
   "name": "SYNCORE",
-  "short_name": "SYS",
+  "short_name": "SYNCORE",
   "description": "PWA futurista para gerenciamento de projetos",
   "start_url": "/SYNCORE/",
   "display": "standalone",
