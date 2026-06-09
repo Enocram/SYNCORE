@@ -13,9 +13,6 @@
 
 > **Um espaço de trabalho neural onde projetos, conhecimento e IA se conectam – offline first, cloud ready.**
 
-![Preview SYNCORE](https://via.placeholder.com/1200x600?text=SYNCORE+Dashboard+Premium)  
-*(Placeholder para imagem – substitua por captura real)*
-
 ---
 
 ## 📌 Visão Geral
@@ -55,8 +52,6 @@ Ferramentas tradicionais de projeto são isoladas (tarefas, documentos, IA, road
 | Roadmap Kanban | Knowledge Center | Cloud Status |
 |----------------|------------------|---------------|
 | ![Roadmap](assets/img/screenshot-roadmap.png) | ![Knowledge](assets/img/screenshot-knowledge.png) | ![Sync](assets/img/screenshot-sync.png) |
-
-*Substitua as imagens placeholder por capturas reais da sua instância.*
 
 ---
 
