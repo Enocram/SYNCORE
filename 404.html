@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a2a">
+  <title>SYS | SYNCORE</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components/icon-navigation.css">
+  <link rel="stylesheet" href="css/components/icon-states.css">
+  <style>
+    /* FORÇA CLICABILIDADE - não altera o visual */
+    .nav-btn, button, .neon-button, .bottom-nav, .bottom-nav * {
+      pointer-events: auto !important;
+      cursor: pointer !important;
+      z-index: 999999 !important;
+    }
+    .neon-grid {
+      pointer-events: none !important;
+    }
+  </style>
+  <style>
+    /* Garantia de que a splash screen aparece imediatamente */
+    #splashScreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10000;
+      background: var(--color-bg-primary);
+      backdrop-filter: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease;
+      opacity: 1;
+    }
+    /* Esconde o conteúdo principal enquanto a splash está ativa */
+    #app {
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    body.boot-complete #app {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <!-- SPLASH SCREEN PREMIUM -->
+  <div id="splashScreen" class="splash-container">
+    <div class="splash-content">
+      <div class="splash-logo">◎</div>
+      <h1 class="splash-title">SYNCORE</h1>
+      <div id="bootTagline" class="splash-tagline">The Synced Core of Your Projects</div>
+      <div id="bootMessage" class="splash-message">Inicializando Neural Network...</div>
+      <div class="progress-bar-container">
+        <div id="bootProgressFill" class="progress-bar-fill"></div>
+      </div>
+      <div class="splash-footer">
+        <span>🧠 Neural Map</span> • <span>🤖 AI Hub</span> • <span>📚 Knowledge Center</span> • <span>🗺️ Roadmaps</span> • <span>☁️ Cloud Sync</span>
+      </div>
+    </div>
+    <div id="bootParticles" class="particles-container"></div>
+  </div>
+  <div class="neon-grid"></div>
+  <div id="app">
+    <header class="top-bar">
+      <div class="logo">
+        <span class="neon-text-blue">SYS</span>
+        <span class="neon-text-purple">://</span>
+        <span class="neon-text-green">SYNCORE</span>
+      </div>
+      <div class="system-status">
+        <span class="status-led online"></span>
+        <span id="clock" class="clock">00:00:00</span>
+      </div>
+    </header>
+
+    <main id="main-content" class="dashboard-container">
+      <div class="loader">CARREGANDO INTERFACE...</div>
+    </main>
+
+    <nav class="bottom-nav" id="bottom-nav">
+  <!-- Os botões serão injetados dinamicamente pelo Icon Navigation System -->
+  </nav>
+  </div>
+
+  <script type="module" src="js/ux-engine.js"></script>
+  <script type="module" src="js/app.js"></script>
+
+  <script>
+    // SCRIPT DE EMERGÊNCIA: força navegação mesmo se o router falhar
+    (function() {
+      function forceNavigation() {
+        const buttons = document.querySelectorAll('.nav-btn');
+        buttons.forEach(btn => {
+          // Remove listener anterior para evitar duplicação
+          btn.removeEventListener('click', btn._forcedListener);
+          // Cria novo handler que override qualquer outro
+          const handler = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            const target = e.currentTarget;
+            const hash = target.getAttribute('data-nav');
+            if (hash) {
+              window.location.hash = hash;
+              console.log('[ForceNav] Navegando para:', hash);
+            }
+            return false;
+          };
+          btn._forcedListener = handler;
+          btn.addEventListener('click', handler);
+          // Garante que o CSS não impeça
+          btn.style.pointerEvents = 'auto';
+          btn.style.cursor = 'pointer';
+        });
+      }
+      // Executa quando o DOM carregar e também após mudanças (para rotas dinâmicas)
+      document.addEventListener('DOMContentLoaded', forceNavigation);
+      const observer = new MutationObserver(forceNavigation);
+      observer.observe(document.body, { childList: true, subtree: true });
+    })();
+  </script>
+  <script type="module">
+  import { initAdaptiveEngine } from './js/engine/adaptive-engine.js';
+  window.addEventListener('DOMContentLoaded', () => {
+    initAdaptiveEngine();
+  });
+  </script>
+</body>
+</html>
