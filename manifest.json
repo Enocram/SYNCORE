@@ -2,7 +2,7 @@
   "name": "SYNCORE",
   "short_name": "SYS",
   "description": "PWA futurista para gerenciamento de projetos",
-  "start_url": "/index.html",
+  "start_url": "/SYNCORE/",
   "display": "standalone",
   "theme_color": "#0a0a2a",
   "background_color": "#050510",
