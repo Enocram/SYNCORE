@@ -1,0 +1,76 @@
+/* ============================================================
+   RESPONSIVE – Media queries específicas
+   ============================================================ */
+
+/* Smartphones pequenos */
+@media (max-width: 479px) {
+  .bottom-nav .nav-label {
+    display: none;
+  }
+  .bottom-nav .nav-icon {
+    font-size: 1.8rem;
+  }
+  .details-two-columns {
+    flex-direction: column;
+  }
+  .form-row.half {
+    width: 100%;
+    margin-right: 0;
+  }
+  .kpi-card {
+    padding: 0.5rem;
+  }
+}
+
+/* Smartphones grandes */
+@media (min-width: 480px) and (max-width: 767px) {
+  .bottom-nav .nav-label {
+    font-size: 0.7rem;
+  }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .bottom-nav {
+    width: 80px;
+    transition: width 0.2s;
+  }
+  .bottom-nav.collapsed {
+    width: 60px;
+  }
+  .bottom-nav.collapsed .nav-label {
+    display: none;
+  }
+}
+
+/* Desktops padrão */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .details-two-columns {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .details-left, .details-right {
+    flex: 1;
+  }
+}
+
+/* Grandes monitores */
+@media (min-width: 1920px) {
+  .dashboard-tactical {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+}
+
+/* Garante que a barra de navegação fique acima do conteúdo em mobile */
+@media (max-width: 767px) {
+  .bottom-nav {
+    z-index: 10000 !important;
+    background: rgba(2, 2, 10, 0.98) !important;
+  }
+  #main-content {
+    margin-bottom: 80px !important; /* espaço extra para a barra */
+    position: relative;
+    z-index: 1;
+  }
+}

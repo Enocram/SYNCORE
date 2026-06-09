@@ -1,0 +1,59 @@
+/* ============================================================
+   ICON STATES – Adaptação por dispositivo
+   ============================================================ */
+
+/* Mobile: bottom navigation */
+@media (max-width: 767px) {
+  .bottom-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 8px 0;
+  }
+  .nav-icon-btn {
+    flex: 1;
+    min-width: auto;
+    padding: 8px 0;
+  }
+  .nav-icon-label {
+    font-size: 0.6rem;
+  }
+  .nav-icon-img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Tablet: sidebar recolhível */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .bottom-nav {
+    width: 80px;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 20px;
+  }
+  .nav-icon-btn {
+    width: 100%;
+    min-width: auto;
+  }
+  .nav-icon-label {
+    font-size: 0.6rem;
+  }
+}
+
+/* Desktop: sidebar expandida */
+@media (min-width: 1024px) {
+  .bottom-nav {
+    width: 90px;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 30px;
+  }
+  .nav-icon-img {
+    width: 36px;
+    height: 36px;
+  }
+  .nav-icon-label {
+    font-size: 0.7rem;
+  }
+}
